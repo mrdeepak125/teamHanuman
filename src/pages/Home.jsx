@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Home() {
+const Home = () => {
   return (
-    <div>
+    <>
       <div
   className="section"
   id="first"
@@ -288,6 +288,7 @@ export default function Home() {
   </div>
 </div>
 {/* -----------------------------------end--------------------------- */}
-    </div>
+    </>
   )
 }
+export default Home;

@@ -1,16 +1,18 @@
-import { initializeApp } from "firebase/app";
+// src/firebase.js
+
 import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "firebase/app";
 import { getMessaging } from "firebase/messaging";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAhOHG1FZ8GeKW1u1wIeIEV221FGPaThSY",
-    authDomain: "myseocmdproject.firebaseapp.com",
-    projectId: "myseocmdproject",
-    storageBucket: "myseocmdproject.appspot.com",
-    messagingSenderId: "201642783268",
-    appId: "1:201642783268:web:6629a967e883f3b1239eb1",
-    measurementId: "G-E1NC3150ER"
-  };
+  apiKey: "AIzaSyDUbUTnvxVE2PDViNr4ex-P9M49gKMWtFE",
+  authDomain: "team-bfcbe.firebaseapp.com",
+  projectId: "team-bfcbe",
+  storageBucket: "team-bfcbe.appspot.com",
+  messagingSenderId: "285905383470",
+  appId: "1:285905383470:web:a51125992d16399aa5afbf",
+  measurementId: "G-6E4XZNXFFN"
+};
 
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);

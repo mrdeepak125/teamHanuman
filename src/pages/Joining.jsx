@@ -1,7 +1,10 @@
-import React from "react";
-import "./Joining.css";
-
-const Joining = () => {
+import React, { useEffect, useState } from "react";
+import '../assets/css/Joining.css';
+import { GoogleLogin } from '@react-oauth/google';
+import { useGoogleOneTapLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+import Home from "./Home";
+function Joining () {
   return (
     <>
       <div className="joinsec">
@@ -109,6 +112,20 @@ const Joining = () => {
             </div>
           </form>
           NOTE:-On click submit-button please wait few second
+        </div>
+        <div className="container2">
+        <GoogleLogin
+  onSuccess={credentialResponse => {
+    const decoded = jwtDecode(credentialResponse?.credential);
+    console.log(decoded);
+  }}
+  onError={() => {
+    console.log('Login Failed');
+      useOneTap
+      auto_select
+      icon
+  }}
+/>
         </div>
       </div>
     </>

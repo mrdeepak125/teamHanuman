@@ -18,7 +18,7 @@ const About = () => {
     <div className="about-img">
       <img
         alt=""
-        src="img/team_logo.png"
+        src="https://mrdeepak125.github.io/teamhanumancalisha/img/team_logo.png"
       />
     </div>
     <div>

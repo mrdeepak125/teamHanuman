@@ -1,58 +1,82 @@
-import React from 'react'
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { messaging } from "./firebase";
 import { getToken } from "firebase/messaging";
-// import components
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-import './App.css'; 
-// import components
-import Navbar from './Components/Navbar.jsx';
-import Footer from './Components/Footer.jsx';
-//import pagess
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar.jsx";
+import Footer from "./Components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
-import Joining from "./pages/Joining.jsx"
-import Gallery from "./pages/Gallery.jsx"
+import Joining from "./pages/Joining.jsx";
+import CalishaAudio from "./pages/CalishaAudio.jsx";
 
- 
 function App() {
   async function requestPermission() {
     const permission = await Notification.requestPermission();
     if (permission === "granted") {
-      // Generate Token
+      getTokenAndDisplay();
+    } else {
+      alert("You denied the notification");
+    }
+  }
+
+  async function getTokenAndDisplay() {
+    try {
       const token = await getToken(messaging, {
-        vapidKey:
-          "BJs4Dcjf0F2c-GXPq_RgcA6ys21_vG_AzS96vSamFeJ3ghXmMysukoXwYRp-ugUCV9ehunGAr35AQJBb61hLJpk",
+        vapidKey: "BGgdDrDpLiFOfwWxcewOH9eSZrO0wyBZ4btZnTAMlfWLeWlNSBid01kw6UG_BULJ41TsqXhufWXohQLJCc9Pma8",
       });
-      console.log("Token Gen", token);
-      // Send this token  to server ( db)
-      //     code end
-    } else if (permission === "denied") {
-      alert("You denied for the notification");
+      const deviceName = navigator.userAgent;
+      console.log('Device Name:', deviceName);
+      console.log("Token no.:-", token);
+      
+      // Send this token to server (db)
+      await fetch('http://localhost:5000/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ notificationToken: token, deviceName })
+      });
+
+      localStorage.setItem('notificationToken', token);
+      localStorage.setItem('deviceName', deviceName);
+    } catch (error) {
+      console.error("Error getting token:", error);
     }
   }
 
   useEffect(() => {
-    // Req user for notification permission
-    requestPermission();
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+
+          // Check if notifications are already granted
+          if (Notification.permission === "granted") {
+            getTokenAndDisplay();
+          } else if (Notification.permission !== "denied") {
+            // Request permission if not already denied
+            requestPermission();
+          }
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    }
   }, []);
 
   return (
     <>
-    <Router>
-      <Navbar/>
-      <Routes>
-        <Route exact path='./Home' element={ <Home/>} />
-        <Route exact path='/Gallery' element={ <Gallery/>} />
-        <Route exact path='/Joining' element={ <Joining/>} />
-        <Route exact path='/About' element={ <About/>} />
-      </Routes>
-      <Footer />
-    </Router>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/Home" element={<Home />} />
+          <Route exact path="/CalishaAudio" element={<CalishaAudio />} />
+          <Route exact path="/Joining" element={<Joining />} />
+          <Route exact path="/About" element={<About />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   );
 }

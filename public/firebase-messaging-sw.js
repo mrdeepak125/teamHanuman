@@ -4,23 +4,20 @@ importScripts(
 );
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAhOHG1FZ8GeKW1u1wIeIEV221FGPaThSY",
-    authDomain: "myseocmdproject.firebaseapp.com",
-    projectId: "myseocmdproject",
-    storageBucket: "myseocmdproject.appspot.com",
-    messagingSenderId: "201642783268",
-    appId: "1:201642783268:web:6629a967e883f3b1239eb1",
-    measurementId: "G-E1NC3150ER"
+  apiKey: "AIzaSyDUbUTnvxVE2PDViNr4ex-P9M49gKMWtFE",
+  authDomain: "team-bfcbe.firebaseapp.com",
+  projectId: "team-bfcbe",
+  storageBucket: "team-bfcbe.appspot.com",
+  messagingSenderId: "285905383470",
+  appId: "1:285905383470:web:a51125992d16399aa5afbf",
+  measurementId: "G-6E4XZNXFFN"
 };
 
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
-  console.log(
-    "[firebase-messaging-sw.js] Received background message ",
-    payload
-  );
+  console.log("[firebase-messaging-sw.js] Received background message ", payload);
   const notificationTitle = payload.notification.title;
   const notificationOptions = {
     body: payload.notification.body,

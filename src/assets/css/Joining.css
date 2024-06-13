@@ -16,6 +16,7 @@
   background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
 }
 .container1{
+  /* height: 85vh; */
   max-width: 800px;
   min-width: 230px;
   background: #fff;

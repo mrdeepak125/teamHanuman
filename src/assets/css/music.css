@@ -1,0 +1,412 @@
+.Music{
+    background-color: #000000;
+    margin:0px;
+    padding:0px;
+    max-width:100%;
+    height:100vh;
+    background-image:url("https://images.hdqwalls.com/download/windows-11-blue-material-3y-2560x1440.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    overflow: hidden;
+}
+h1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 13pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+  cursor: default;
+}
+
+h4 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 8pt;
+  font-weight: 400;
+  cursor: default;
+}
+
+h2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 13pt;
+  font-weight: 300;
+  color: white;
+  cursor: default;
+}
+
+.player {
+  height: 190px;
+  width: 430px;
+  background-color: #25201e;
+  position: absolute;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  top: 40%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+.player:hover {
+  box-shadow: 0 0 70px 5px rgb(242, 104, 5);
+}
+.player ul {
+  list-style: none;
+}
+.player ul li {
+  display: inline-block;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.cover img {
+  height: 190px;
+  width: 190px;
+}
+
+.info h1 {
+  margin-top: 15px;
+  margin-left: 180px;
+  line-height: 0;
+}
+.info h4 {
+  margin-left: 180px;
+  line-height: 20px;
+  color: #636367;
+}
+.info h2 {
+  margin-left: 180px;
+}
+
+.button-items {
+  margin-left: 180px;
+}
+
+#slider {
+  width: 182px;
+  height: 4px;
+  background: #151518;
+  border-radius: 2px;
+}
+#slider div {
+  width: 4px;
+  height: 4px;
+  margin-top: 1px;
+  background: #ef6dbc;
+  border-radius: 2px;
+}
+
+#timer {
+  color: #494b4e;
+  line-height: 0;
+  font-size: 9pt;
+  float: right;
+  font-family: Arial, Sans-Serif;
+}
+
+.controls {
+  margin-top: 0;
+}
+.controls svg:nth-child(2) {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#play {
+  padding: 0 3px;
+  width: 30px;
+  height: 30px;
+  overflow-x: 0px;
+  overflow-y : 0px;
+  enable-background: new 0 0 25 25;
+}
+#play g {
+  stroke: #fefefe;
+  stroke-width: 1;
+  stroke-miterlimit: 10;
+}
+#play g path {
+  fill: #fefefe;
+}
+
+#play:hover {
+  cursor: pointer;
+}
+#play:hover g {
+  stroke: #8f4da9;
+  cursor: pointer;
+}
+#play:hover g path {
+  fill: #9b59b6;
+  cursor: pointer;
+}
+
+.step-backward {
+  width: 18px;
+  height: 18px;
+  overflow-x: 0px;
+  overflow-y: 0px;
+  enable-background: new 0 0 25 25;
+  margin-bottom: 5px;
+}
+.step-backward g polygon {
+  fill: #fefefe;
+}
+
+.step-foreward {
+  width: 18px;
+  height: 18px;
+  overflow-x: 0px;
+  overflow-y: 0px;
+  enable-background: new 0 0 25 25;
+  margin-bottom: 5px;
+}
+.step-foreward g polygon {
+  fill: #fefefe;
+}
+
+#pause {
+  overflow-x: 0px;
+  overflow-y: 0px;
+  enable-background: new 0 0 25 25;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-left: -38px;
+  cursor: pointer;
+}
+#pause rect {
+  fill: white;
+}
+
+#pause:hover rect {
+  fill: #8f4da9;
+}
+
+.step-backward g polygon:hover,
+.step-foreward g polygon:hover {
+  fill: #ef6dbc;
+  cursor: pointer;
+}
+
+.social {
+  text-align: center;
+}
+
+.twitter {
+  color: #bdbdbd;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+.twitter:hover {
+  color: #ecf0f1;
+}
+
+.github {
+  color: #bdbdbd;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+.github:hover {
+  color: #ecf0f1;
+}
+
+p {
+  color: #bdbdbd;
+}
+
+#skip {
+  float: right;
+  margin-top: 10px;
+}
+#skip p {
+  color: #2980b9;
+}
+#skip p:hover {
+  color: #e74c3c;
+  cursor: pointer;
+}
+
+.expend {
+  padding: 0.5px;
+  cursor: pointer;
+}
+.expend svg:hover g polygon {
+  fill: #e46d13;
+}
+.player span{
+  color: #fff;
+  width: 32px;
+  /* border: 1px solid red; */
+  font-size: 11px;
+  font-weight: 400;
+}
+/* header .player #currentStart{
+  margin: 0px 20px 0px 20px;
+} */
+
+.player .bar{
+  position: relative;
+  /* width: 100%; */
+  height: 5px;
+  background: rgb(105, 105, 170, .1);
+  margin: 0px 15px 0px 0px;
+  /* bottom: 10%; */
+  /* position: absolute; */
+  margin-left: 1.3%;
+}
+.player .bar input{
+position: absolute;
+  width: 100%;
+  top: -7px;
+  left: 0;
+  cursor: pointer;
+  z-index: 99999;
+  opacity: 0;
+}
+.player .bar .bar2{
+  position: absolute;
+  background: #36e2ec;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  transition: 1s linear;
+}
+/* vol_bar */
+.dot{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #36e2ec;
+  border-radius: 20%;
+  left: 10%;
+  /* left: 0%; */
+  top: -1.7px;
+  transition: 1s linear;
+}
+
+.dot::before{
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 1px solid #36e2ec;
+  border-radius: 50%;
+  left: -6px;
+  top: -6px;
+  box-shadow:  inset 0px 0px 4px  #36e2ec;
+  /* -webkit-animation: spin 2s linear infinite; */
+      /* animation: spin 2s linear infinite; */
+}
+
+/* -webkit-animation: spin 2s linear infinite;
+animation: spin 2s linear infinite; */
+
+
+
+@-webkit-keyframes spin {
+  0% {
+      -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+header .player .bar input{
+  position: absolute;
+  width: 100%;
+  top: -7px;
+  left: 0;
+  cursor: pointer;
+  z-index: 99999;
+  opacity: 0;
+}
+
+@media (min-width: 320px) {
+  /* smartphones, portrait iPhone, */
+  .player {
+    height: 190px;
+    width: 350px;
+
+    top: 40%;
+    left: 50%;
+  }
+  h1 {
+    font-size: 9pt;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+  }
+
+  h2 {
+    font-size: 8pt;
+    font-weight: 100;
+  }
+  .cover img {
+    height: 190px;
+    width: 150px;
+  }
+  .info h1 {
+    margin-left: 120px;
+  }
+  .info h4 {
+    margin-left: 120px;
+  }
+  .info h2 {
+    margin-left: 120px;
+  }
+  .button-items {
+    margin-left: 120px;
+  }
+}
+@media (min-width: 480px) {
+  /* smartphones, Android phones, landscape iPhone */
+  .player {
+    left: 50%;
+  }
+}
+@media (min-width: 600px) {
+  /* portrait tablets, portrait iPad */
+  .player {
+    left: 50%;
+  }
+}
+@media (min-width: 801px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .player {
+    left: 50%;
+  }
+}
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+  .player {
+    left: 50%;
+  }
+}
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
+  .player {
+    left: 50%;
+  }
+}

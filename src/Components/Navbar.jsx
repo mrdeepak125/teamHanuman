@@ -1,27 +1,41 @@
-import React from "react";
-// import {Link} from "react-router-dom";
-
+import React, { useState } from "react";
 
 const Navbar = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
     return (
       <div>
+      {/* Sidebar */}
+      <div className={`sidebar ${showSidebar ? 'show' : ''}`}>
+        {/* Add your sidebar content here */}
+        <ul>
+          <li><a href="/">HOME</a></li>
+          <li><a href="CalishaAudio">Calisha Audio</a></li>
+          <li><a href="Joining">JOINING US</a></li>
+          <li><a href="about">ABOUT US</a></li>
+        </ul>
+      </div>
         <nav>
           <ul>
 
             <img src="https://mrdeepak125.github.io/teamhanumancalisha/img/team_logo.png" alt="Team Logo" />
             <li>
               <h1>
-                <a href="#">
+                <div className="navbar-toggle" onClick={toggleSidebar}>
                   <span aria-hidden="true" className="fa-solid da-coad" />
                   <span>TEAM HANUMAN CALISHA</span>
-                </a>
+                </div>
               </h1>
             </li>
             <li>
               <a href="Home">HOME</a>
             </li>
             <li>
-              <a href="Gallary">GALLARY</a>
+              <a href="CalishaAudio">Calisha Audio</a>
             </li>
             <li>
               <a href="Joining">JOINING US</a>
