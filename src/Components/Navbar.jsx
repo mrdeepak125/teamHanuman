@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -32,7 +33,7 @@ const Navbar = () => {
               </h1>
             </li>
             <li>
-              <a href="Home">HOME</a>
+              <a href="/">HOME</a>
             </li>
             <li>
               <a href="CalishaAudio">Calisha Audio</a>

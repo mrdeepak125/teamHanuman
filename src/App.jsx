@@ -69,11 +69,10 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/Home" element={<Home />} />
-          <Route exact path="/CalishaAudio" element={<CalishaAudio />} />
-          <Route exact path="/Joining" element={<Joining />} />
-          <Route exact path="/About" element={<About />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/CalishaAudio" element={<CalishaAudio />} />
+          <Route path="/Joining" element={<Joining />} />
+          <Route path="/About" element={<About />} />
         </Routes>
         <Footer />
       </Router>
