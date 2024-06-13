@@ -11,10 +11,9 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'http://localhost:5173'  // Replace with your frontend's origin
+  origin: 'http://localhost:5173'
 }));
 
-// Ensure users.json file exists and can be read
 const usersFilePath = path.resolve('./src/users/user.json');
 let users = [];
 
@@ -30,7 +29,6 @@ app.post('/', async (req, res) => {
   const { notificationToken, deviceName } = req.body;
 
   try {
-    // Check if the token and device name combination already exists
     const existingUser = await deviceToken.findOne({ notificationToken, deviceName });
     if (existingUser) {
       res.status(409).send('User already exists');
