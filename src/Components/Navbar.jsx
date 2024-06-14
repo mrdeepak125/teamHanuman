@@ -33,16 +33,16 @@ const Navbar = () => {
               </h1>
             </li>
             <li>
-              <a href="/">HOME</a>
+              <Link to="/">HOME</Link>
             </li>
             <li>
-              <a href="CalishaAudio">Calisha Audio</a>
+              <Link to="CalishaAudio">Calisha Audio</Link>
             </li>
             <li>
-              <a href="Joining">JOINING US</a>
+              <Link to="Joining">JOINING US</Link>
             </li>
             <li>
-              <a href="about">ABOUT US</a>
+              <Link to="about">ABOUT US</Link>
             </li>
             <li>
             <button className="btnn">
